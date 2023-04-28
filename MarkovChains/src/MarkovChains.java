@@ -12,6 +12,9 @@ public class MarkovChains {
         random = new Random();
     }
 
+    //this method takes a string in and creates a
+    // 'mapping' between each word in the input string
+    //the mapping is storied in transitions
     public void train(String input) {
         String[] words = input.split(" ");
         for (int i = 0; i < words.length - 1; i++) {
@@ -24,6 +27,8 @@ public class MarkovChains {
         }
     }
 
+    //this method takes the wanted output length &
+    // uses the mapping to randomly generate a new string
     public String generate(int length) {
         List<String> currentWords = new ArrayList<>(transitions.keySet());
         String current = currentWords.get(random.nextInt(currentWords.size()));
